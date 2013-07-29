@@ -1,6 +1,26 @@
-<!--
-  Hand coded form
--->
+<h1>Sign Up</h1>
+
+<%= form_for @student do |f| %>
+
+<% if @student.errors.any? %>
+  <div class="error_messages">
+  <h2>Bad input!</h2>
+  <ul>
+  <% @student.errors.full_messages.each do |msg| %>
+    <li><%= msg %></li>
+  <% end %>
+  </ul>
+  </div>
+<% end %>
+
+<%= f.label :password %>
+<%= f.password_field :password %>
+<%= f.label :password_confirmation %>
+<%= f.password_field :password_confirmation%>
+
+<%= f.submit %>
+
+<% end %>
 
 <form action="/students" method="post">
   <label>Name</label>
